@@ -1,7 +1,7 @@
-import Implementations.*
+import Week1.*
 import org.scalatest.funsuite.AnyFunSuite
 
-class ImplementationsTest extends AnyFunSuite {
+class Week1Test extends AnyFunSuite {
 
   test("pascal should return the correct value for a given row and column") {
     assert(pascal(0, 0) == 1)
@@ -55,7 +55,7 @@ class ImplementationsTest extends AnyFunSuite {
     assert(countChange(4, List(1, 2)) == 3)
     assert(countChange(4, List(1, 2, 3)) == 4)
     assert(countChange(6, List(1, 2, 5)) == 5)
-    assert(countChange(17, List(1, 2, 5)) == 16)
+    assert(countChange(17, List(1, 2, 5)) == 22)
   }
 
   test("countChange should handle impossible combinations") {

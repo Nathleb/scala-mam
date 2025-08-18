@@ -1,3 +1,0 @@
-object Exercises extends App {
-  
-}

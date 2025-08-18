@@ -1,7 +1,7 @@
 import scala.annotation.tailrec
 
 
-object Implementations {
+object Week1 {
 
   def pascal(c: Int, r: Int): Int = {
     if (c == 0 || c == r) {
@@ -52,13 +52,22 @@ object Implementations {
   }
 
   def countChange(money: Int, coins: List[Int]): Int = {
-    if (money < 0 || coins.isEmpty) {
-      0
+    val coinsWithNoDuplicates = coins.distinct
+
+    def innerCountChange(money: Int, coins: List[Int]): Int = {
+      if (money < 0) {
+        0
+      }
+      else if (money == 0) {
+        1
+      } else if (coins.isEmpty) {
+        0
+      }
+      else {
+        innerCountChange(money - coins.head, coins) + innerCountChange(money, coins.tail)
+      }
     }
-    else if (money == 0) {
-      1
-    } else {
-      countChange(money - coins.head, coins) + countChange(money, coins.tail)
-    }
+
+    innerCountChange(money, coinsWithNoDuplicates)
   }
 }
